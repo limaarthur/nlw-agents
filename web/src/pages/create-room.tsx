@@ -19,10 +19,11 @@ export function CreateRoom() {
 
   return (
     <div>
-      <div>Create Room</div>
-
       {isLoading && <p>Carregando...</p>}
-      <pre>{data && JSON.stringify(data, null, 2)}</pre>
+      <div>
+        {data?.map(room => {
+          return <p key={room.id}>{room.name}</p>
+        })}</div>
 
       <Link className="underline" to="/room">
         Acessar sala
