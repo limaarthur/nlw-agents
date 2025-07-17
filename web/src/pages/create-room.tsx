@@ -16,13 +16,17 @@ export function CreateRoom() {
       return result
     }, 
   })
+
   return (
     <div>
       <div>Create Room</div>
 
       {isLoading && <p>Carregando...</p>}
+      <pre>{data && JSON.stringify(data, null, 2)}</pre>
 
-      <Link className="underline" to="/room">Acessar sala</Link>
+      <Link className="underline" to="/room">
+        Acessar sala
+      </Link>
     </div>
   )
 }
