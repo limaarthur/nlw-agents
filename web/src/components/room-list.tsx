@@ -10,20 +10,14 @@ import {
   CardHeader, 
   CardTitle 
 } from './ui/card'
-
-type GetRoomsAPIResponse = Array< { // Determina que a nossa API será um array de objetos com id e name
-  id: string
-  name: string
-  questionsCount: number
-  createdAt: string
-}>
+import type { GetRoomsResponse } from '@/http/types/get-rooms-response'
 
 export function RoomList() {
   const { data, isLoading } = useQuery({
     queryKey: ['get-rooms'], // Identificador único para a chamada HTTP
     queryFn: async () => { // Função que será executada para trazer os dados da API
       const response = await fetch('http://localhost:3333/rooms') // Faz a chamada a API
-      const result: GetRoomsAPIResponse = await response.json() // Converte para JSON
+      const result: GetRoomsResponse = await response.json() // Converte para JSON
 
       return result
     }, 
