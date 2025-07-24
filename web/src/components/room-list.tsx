@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query'
 import { ArrowRight } from 'lucide-react'
+import { useRooms } from '@/http/types/use-rooms'
 import { Link } from 'react-router-dom'
 import { dayjs } from '@/lib/dayjs'
 import { Badge } from './ui/badge'
@@ -10,19 +10,11 @@ import {
   CardHeader, 
   CardTitle 
 } from './ui/card'
-import type { GetRoomsResponse } from '@/http/types/get-rooms-response'
+
 
 export function RoomList() {
-  const { data, isLoading } = useQuery({
-    queryKey: ['get-rooms'], // Identificador único para a chamada HTTP
-    queryFn: async () => { // Função que será executada para trazer os dados da API
-      const response = await fetch('http://localhost:3333/rooms') // Faz a chamada a API
-      const result: GetRoomsResponse = await response.json() // Converte para JSON
-
-      return result
-    }, 
-  })
-
+  const { data, isLoading } = useRooms()
+  
   return (
     <Card>
       <CardHeader>
