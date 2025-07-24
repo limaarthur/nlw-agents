@@ -1,5 +1,6 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { dayjs } from '@/lib/dayjs'
 import { useQuery } from '@tanstack/react-query'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -43,7 +44,7 @@ export function CreateRoom() {
                   Carregando salas...
                 </p>
               )}
-              
+
               {data?.map(room => {
                 return ( 
                   <Link 
@@ -56,7 +57,7 @@ export function CreateRoom() {
 
                       <div className="flex items-center gap-2">
                         <Badge className="text-xs" variant="secondary">
-                          {room.createdAt}
+                          {dayjs(room.createdAt).toNow()}
                         </Badge>
                         <Badge className="text-xs" variant="secondary">
                           {room.questionsCount} pergunta(s)
