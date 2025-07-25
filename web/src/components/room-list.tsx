@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import { useRooms } from '@/http/types/use-rooms'
+import { useRooms } from '@/http/use-rooms'
 import { Link } from 'react-router-dom'
 import { dayjs } from '@/lib/dayjs'
 import { Badge } from './ui/badge'
